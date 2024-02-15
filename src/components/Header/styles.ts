@@ -28,7 +28,7 @@ export const ActionButtons = styled.div`
 
 
 export const Cart = styled.button`
-    padding: .5rem .5rem;
+    padding: .5rem .5rem .3rem .5rem;
     border: none;
     border-radius: 6px;
     background: ${(props) => props.theme['yellow-light']};
