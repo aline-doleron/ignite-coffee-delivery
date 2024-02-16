@@ -1,14 +1,12 @@
 import { MapPin, ShoppingCart } from "@phosphor-icons/react";
 import { NavLink } from "react-router-dom";
 import { ActionButtons, Cart, HeaderContainer, Locale, } from "./styles";
-import logo from "../../assets/logo-coffee-delivery.svg";
-
 export function Header() {
     return (
         <HeaderContainer>
             <nav>
                 <NavLink to="/" title="Home">
-                    <img src={logo} alt="" />
+                    <img src={"/assets/logo-coffee-delivery.svg"} alt="" />
                 </NavLink>
 
                 <ActionButtons>

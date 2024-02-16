@@ -1,5 +1,5 @@
 import { CoffeeCard, CartButton, CoffeeCardContainer, CoffeeOptionsContainer, CoffeeType, CoffeeValue, CoffeeDescription, Currency, CardText, Tags, Price, Quantity } from "./styles";
-import americano from "../../../../assets/americano.svg";
+import { CoffeeTypes } from "./data";
 import { Minus, Plus, ShoppingCartSimple } from "@phosphor-icons/react";
 
 export function CoffeeOptions() {
@@ -9,29 +9,34 @@ export function CoffeeOptions() {
                 <h1>Nossos cafés</h1>
             </div>
             <CoffeeCardContainer>
-                <CoffeeCard>
-                    <img src={americano} alt="café americano" />
 
-                    <CardText>
-                        <Tags>
-                            <span>Tradicional</span>
-                            <span>Gelado</span>
-                        </Tags>
-                        <CoffeeType>Expresso tradicional</CoffeeType>
-                        <CoffeeDescription>O tradicional café feito com água quente e grãos moídos</CoffeeDescription>
+                {CoffeeTypes.map(coffee => {
+                    return (
+                        <CoffeeCard>
+                            <img key={coffee.img} src={coffee.img} alt="café americano" />
 
-                        <CoffeeValue>
-                            <Currency>R$</Currency><Price> 9,90</Price>
-                            <Quantity>
-                                <button><Plus size={14} /></button>
-                                <input type="number" />
-                                <button><Minus size={14} /></button>
-                            </Quantity>
-                            <CartButton><ShoppingCartSimple size={22} weight="fill" /></CartButton>
-                        </CoffeeValue>
-                    </CardText>
+                            <CardText>
+                                <Tags>
+                                    {coffee.tags.map(tag => <span key={coffee.img + tag}>{tag}</span>)}
+                                </Tags>
+                                <CoffeeType>{coffee.type}</CoffeeType>
+                                <CoffeeDescription>{coffee.description}</CoffeeDescription>
 
-                </CoffeeCard>
+                                <CoffeeValue>
+                                    <Currency>R$</Currency><Price>{coffee.price}</Price>
+                                    <Quantity>
+                                        <button><Plus size={14} /></button>
+                                        <input type="number" />
+                                        <button><Minus size={14} /></button>
+                                    </Quantity>
+                                    <CartButton><ShoppingCartSimple size={22} weight="fill" /></CartButton>
+                                </CoffeeValue>
+                            </CardText>
+
+                        </CoffeeCard>
+                    )
+                })}
+
             </CoffeeCardContainer>
 
         </CoffeeOptionsContainer>

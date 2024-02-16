@@ -1,5 +1,4 @@
 import { Benefits, PresentationContainer, PresentationText, ShoppingCartBenefit, TimerBenefit, PackageBenefit, CoffeeBenefit } from "./styles";
-import coffeeDeliveryImage from "../../../../assets/coffee-delivery.svg";
 import { Coffee, Package, ShoppingCartSimple, Timer } from "@phosphor-icons/react";
 
 export function Presentation() {
@@ -34,7 +33,7 @@ export function Presentation() {
                 </Benefits>
             </PresentationText>
 
-            <img src={coffeeDeliveryImage} alt="Cup of coffee" />
+            <img src={`/assets/coffee-delivery.svg`} alt="Cup of coffee" />
 
 
         </PresentationContainer>
