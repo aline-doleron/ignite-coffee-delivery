@@ -32,19 +32,37 @@ export const Cart = styled.button`
     border: none;
     border-radius: 6px;
     background: ${(props) => props.theme['yellow-light']};
+    position: relative;
 
     svg {
         color: ${(props) => props.theme['yellow-dark']};
     }
 `
 
+export const Quantity = styled.div`
+    background: ${(props) => props.theme['yellow-dark']};
+    height: 1.25rem;
+    right: -8px;
+    width: 1.25rem;
+    border: none;
+    border-radius: 1000px;
+    position: absolute;
+    top: -8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: .75rem;
+    color: ${(props) => props.theme['white']};
+`
 
 export const Locale = styled.button`
     display: flex;
     align-items: center;
     width: auto;
-    padding: 0.6rem 0.6rem;
+    padding: 0.5rem 0.5rem;
     border: none;
     border-radius: 6px;
     background: ${(props) => props.theme['purple-light']};
