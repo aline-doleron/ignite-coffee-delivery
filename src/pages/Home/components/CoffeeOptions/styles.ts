@@ -14,6 +14,7 @@ export const CoffeeCardContainer = styled.section`
     display: flex;
     gap: 2rem;
     margin-top: 4rem;
+    flex-wrap: wrap;
 
 `
 

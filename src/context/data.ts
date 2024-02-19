@@ -17,7 +17,8 @@ const IMAGES = {
     mochaccino: 'mochaccino.svg',
 };
 
-interface Coffee {
+export interface Coffee {
+    id: number;
     img: string,
     tags: string[],
     type: string,
@@ -29,6 +30,7 @@ interface Coffee {
 
 export const CoffeeTypes: Coffee[] = [
     {
+        id: 1,
         img: `/assets/${IMAGES.expresso}`,
         tags: ['Tradicional'],
         type: 'Expresso Tradicional',
@@ -37,6 +39,7 @@ export const CoffeeTypes: Coffee[] = [
         quantity: 0
     },
     {
+        id: 2,
         img: `/assets/${IMAGES.americano}`,
         tags: ['Tradicional'],
         type: 'Expresso Americano',
@@ -45,6 +48,7 @@ export const CoffeeTypes: Coffee[] = [
         quantity: 0
     },
     {
+        id: 3,
         img: `/assets/${IMAGES['expresso-cremoso']}`,
         tags: ['Tradicional'],
         type: 'Expresso Cremoso',
@@ -53,6 +57,7 @@ export const CoffeeTypes: Coffee[] = [
         quantity: 0
     },
     {
+        id: 4,
         img: `/assets/${IMAGES['cafe-gelado']}`,
         tags: ['Tradicional', 'Gelado'],
         type: 'Expresso Gelado',
