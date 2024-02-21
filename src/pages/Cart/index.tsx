@@ -3,56 +3,51 @@ import { Bank, CreditCard, CurrencyDollar, MapPinLine, Minus, Money, Plus, Trash
 import { Address, CartContainer, FormGroup, Input10, Input100, Input40, Input50, Input60, BaseContainer, Payment, PaymentMethods, Coffees, Coffee, Quantity, RemoveButton, CoffeeResume, Actions, CoffeePrice, Resume, Total, Checkout, TotalItems, DeliveryTax } from "./styles";
 import { ChangeEvent, useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
+import { useNavigate } from "react-router-dom";
 
-interface Address {
-    cep: string;
-    rua: string;
-    numero: string;
-    complemento: string;
-    bairro: string;
-    cidade: string;
-    estado: string;
-};
+
 
 export function Cart() {
-    const { cartItems, totalAmount, deliveryTax, addItemToCart, removeCoffee, updateCoffeeQuantity } = useContext(CartContext);
-    const [address, setAddress] = useState<Address>({
-        cep: '',
-        rua: '',
-        numero: '',
-        complemento: '',
-        bairro: '',
-        cidade: '',
-        estado: ''
-    });
-    const [paymentMethod, setPaymentMethod] = useState<string | undefined>();
+    const { address,
+        cartItems,
+        totalAmount,
+        deliveryTax,
+        addItemToCart,
+        removeCoffee,
+        paymentMethod,
+        updateCoffeeQuantity,
+        updateAddress,
+        updatePaymentMethod,
+        clearCart } = useContext(CartContext);
+
+    const navigate = useNavigate();
+
+    const navigateToContacts = () => {
+        clearCart();
+        navigate('/confirmation');
+    };
 
     const totalAmountLocalized = totalAmount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 });
     const deliveryTaxLocalized = deliveryTax.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 });
     const totalWithDeliveryTaxLocalized = (totalAmount + deliveryTax).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 });
 
     function incrementCoffeeQuantity(type: string, quantity: number) {
-        updateCoffeeQuantity(type, quantity + 1);
-        addItemToCart(type);
+        addItemToCart(type, "increment");
     }
 
     function decrementCoffeeQuantity(type: string, quantity: number) {
-        updateCoffeeQuantity(type, quantity - 1);
-        addItemToCart(type);
+        addItemToCart(type, "decrement");
     }
 
-
-
-
     function handleAddressChange(event: ChangeEvent<HTMLInputElement>): void {
-        setAddress({
+        updateAddress({
             ...address,
             [event.target.name]: event.target.value
         })
     }
 
     function handleSelectPaymentMethod(e: React.MouseEvent<HTMLButtonElement>) {
-        setPaymentMethod((e.target as HTMLButtonElement).value);
+        updatePaymentMethod((e.target as HTMLButtonElement).value);
     }
 
     return (
@@ -70,19 +65,19 @@ export function Cart() {
                     </header>
 
                     <form>
-                        <Input40 type="text" name="cep" placeholder="CEP" value={address.cep} onChange={handleAddressChange} />
+                        <Input40 required type="text" name="cep" placeholder="CEP" value={address.cep} onChange={handleAddressChange} />
 
-                        <Input100 type="text" name="rua" placeholder="Rua" value={address.rua} onChange={handleAddressChange} />
+                        <Input100 required type="text" name="rua" placeholder="Rua" value={address.rua} onChange={handleAddressChange} />
 
                         <FormGroup>
-                            <Input40 type="text" name="numero" placeholder="Número" value={address.numero} onChange={handleAddressChange} />
+                            <Input40 required type="text" name="numero" placeholder="Número" value={address.numero} onChange={handleAddressChange} />
 
                             <Input60 type="text" name="complemento" placeholder="Complemento" value={address.complemento} onChange={handleAddressChange} />
                         </FormGroup>
                         <FormGroup>
-                            <Input40 type="text" name="bairro" placeholder="Bairro" value={address.bairro} onChange={handleAddressChange} />
-                            <Input50 type="text" name="cidade" placeholder="Cidade" value={address.cidade} onChange={handleAddressChange} />
-                            <Input10 type="text" name="estado" placeholder="UF" value={address.estado} onChange={handleAddressChange} />
+                            <Input40 required type="text" name="bairro" placeholder="Bairro" value={address.bairro} onChange={handleAddressChange} />
+                            <Input50 required type="text" name="cidade" placeholder="Cidade" value={address.cidade} onChange={handleAddressChange} />
+                            <Input10 required type="text" name="estado" placeholder="UF" value={address.estado} onChange={handleAddressChange} />
                         </FormGroup>
                     </form>
                 </Address>
@@ -95,9 +90,9 @@ export function Cart() {
                         </section>
                     </header>
                     <PaymentMethods>
-                        <button data-active={paymentMethod === 'creditCard'} value="creditCard" aria-selected={paymentMethod === 'creditCard'} onClick={handleSelectPaymentMethod} ><CreditCard size={16} />Cartão de crédito</button>
-                        <button data-active={paymentMethod === 'bank'} value="bank" aria-selected={paymentMethod === 'bank'} onClick={handleSelectPaymentMethod} ><Bank size={16} />Cartão de débito</button>
-                        <button data-active={paymentMethod === 'cash'} value="cash" aria-selected={paymentMethod === 'cash'} onClick={handleSelectPaymentMethod} ><Money size={16} />Dinheiro</button>
+                        <button data-active={paymentMethod.id === 'creditCard'} value="creditCard" aria-selected={paymentMethod.id === 'creditCard'} onClick={handleSelectPaymentMethod} ><CreditCard size={16} />Cartão de crédito</button>
+                        <button data-active={paymentMethod.id === 'bank'} value="bank" aria-selected={paymentMethod.id === 'bank'} onClick={handleSelectPaymentMethod} ><Bank size={16} />Cartão de débito</button>
+                        <button data-active={paymentMethod.id === 'cash'} value="cash" aria-selected={paymentMethod.id === 'cash'} onClick={handleSelectPaymentMethod} ><Money size={16} />Dinheiro</button>
                     </PaymentMethods>
 
                 </Payment>
@@ -156,7 +151,7 @@ export function Cart() {
                         </Total>
                     </Resume>
 
-                    <Checkout>
+                    <Checkout onClick={navigateToContacts}>
                         Confirmar pedido
                     </Checkout>
                 </Coffees>

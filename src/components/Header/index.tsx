@@ -21,7 +21,9 @@ export function Header() {
                         <Locale><MapPin size={22} weight="fill" />Porto Alegre, RS</Locale>
                     </NavLink>
                     <NavLink to="/cart" title="Cart">
-                        <Cart><ShoppingCart size={22} weight="fill" /><Quantity>{coffeeQuantity}</Quantity></Cart>
+                        <Cart><ShoppingCart size={22} weight="fill" />
+                            {coffeeQuantity > 0 && <Quantity>{coffeeQuantity}</Quantity>}
+                        </Cart>
                     </NavLink>
                 </ActionButtons>
 

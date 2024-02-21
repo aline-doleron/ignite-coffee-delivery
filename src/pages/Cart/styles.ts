@@ -329,4 +329,9 @@ export const Checkout = styled.button`
     font-family: 'Roboto',sans-serif;
     font-weight: bold;
     line-height: 160%;
+
+    &:hover {
+        cursor: pointer;
+        background:  ${(props) => props.theme['yellow-dark']};
+    }
 `

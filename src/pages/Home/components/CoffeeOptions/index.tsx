@@ -1,7 +1,7 @@
 import { CoffeeCard, CartButton, CoffeeCardContainer, CoffeeOptionsContainer, CoffeeType, CoffeeValue, CoffeeDescription, Currency, CardText, Tags, Price, Quantity } from "./styles";
 
 import { Minus, Plus, ShoppingCartSimple } from "@phosphor-icons/react";
-import { useContext, useState } from "react";
+import { useContext, useRef } from "react";
 import { CartContext } from "../../../../context/CartContext";
 
 export function CoffeeOptions() {
@@ -13,6 +13,10 @@ export function CoffeeOptions() {
 
     function decrementCoffeeQuantity(type: string, quantity: number) {
         updateCoffeeQuantity(type, quantity - 1);
+    }
+
+    function changeCoffeeQuantity(type: string, quantity: string) {
+        updateCoffeeQuantity(type, parseInt(quantity));
     }
 
     return (<>
@@ -43,15 +47,21 @@ export function CoffeeOptions() {
                                                 e.preventDefault();
                                                 decrementCoffeeQuantity(coffee.type, coffee.quantity)
                                             }} /></button>
-                                            <input type="number" onChange={() => { }} value={coffee.quantity} />
+                                            <input type="number" onChange={(e) => {
+                                                e.preventDefault();
+                                                changeCoffeeQuantity(coffee.type, (e.target as HTMLInputElement).value)
+                                            }} value={coffee.quantity} />
                                             <button ><Plus size={14} onClick={(e) => {
                                                 e.preventDefault();
                                                 incrementCoffeeQuantity(coffee.type, coffee.quantity)
                                             }} /></button>
                                         </Quantity>
-                                        <CartButton onClick={(e) => {
+                                        <CartButton disabled={coffee.quantity === 0} onClick={(e) => {
                                             e.preventDefault();
-                                            addItemToCart(coffee.type)
+                                            if (coffee.quantity) {
+                                                addItemToCart(coffee.type)
+                                            }
+
                                         }}><ShoppingCartSimple size={22} weight="fill" /></CartButton>
                                     </CoffeeValue>
                                 </CardText>

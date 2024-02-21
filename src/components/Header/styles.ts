@@ -37,6 +37,10 @@ export const Cart = styled.button`
     svg {
         color: ${(props) => props.theme['yellow-dark']};
     }
+
+    &:hover {
+        cursor: pointer;
+    }
 `
 
 export const Quantity = styled.div`

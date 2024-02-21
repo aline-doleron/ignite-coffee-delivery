@@ -152,6 +152,16 @@ export const CartButton = styled.button`
     border-radius: 6px;
     background: ${(props) => props.theme['purple-dark']};
 
+    &:hover {
+        cursor: pointer;
+        background: ${(props) => props.theme['purple']};
+    }
+
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
     svg {
         color: ${(props) => props.theme['base-card']};
     }
