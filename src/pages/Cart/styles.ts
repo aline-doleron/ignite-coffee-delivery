@@ -128,7 +128,7 @@ export const PaymentMethods = styled.div`
         color: ${(props) => props.theme['base-text']};
         background: ${(props) => props.theme['base-button']};
         border-radius: 6px;
-        border: none;
+        border: 1px solid transparent;
         display: flex;
         font-size: .75rem;
         font-family: 'Roboto', sans-serif;
@@ -139,7 +139,19 @@ export const PaymentMethods = styled.div`
         text-align: center;
         text-transform: uppercase;
         width: 100%;
+
+        &:hover {
+            background: ${(props) => props.theme['base-hover']};
+            color: ${(props) => props.theme['base-subtitle']};
+        }
+
+        &[data-active="true"] {
+            border: 1px solid ${(props) => props.theme['purple']};
+            background: ${(props) => props.theme['purple-light']};
+        }
     }
+
+    
 `
 
 export const Coffees = styled.section`

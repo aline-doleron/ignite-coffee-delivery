@@ -7,8 +7,9 @@ interface CartContextType {
     cartItems: Coffee[],
     deliveryTax: number,
     totalAmount: number,
+    addItemToCart: (type: string) => void;
+    removeCoffee: (type: string) => void;
     updateCoffeeQuantity: (type: string, quantity: number) => void
-    addItemToCart: (type: string) => void
 }
 
 export const CartContext = createContext({} as CartContextType);
@@ -68,6 +69,14 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
     }
 
+    function removeCoffee(type: string) {
+        const newCartItems = cartItems.filter((coffee) => coffee.type !== type)!;
+
+        setCartItems(newCartItems);
+
+
+    }
+
     useEffect(() => {
         const total = cartItems.reduce((acc, item) => acc + (item.quantity * item.price), 0);
 
@@ -81,8 +90,9 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
                 coffeeItems,
                 deliveryTax,
                 totalAmount,
-                updateCoffeeQuantity,
                 addItemToCart,
+                removeCoffee,
+                updateCoffeeQuantity,
             }}>
             {children}
         </CartContext.Provider>
