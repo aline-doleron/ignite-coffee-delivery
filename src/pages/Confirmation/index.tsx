@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import { AddressResume, ConfirmationContainer, ConfirmationMessages, ConfirmationResume, DeliveryTimeResume, Highlight, PaymentMethodResume } from "./styles"
 import { CurrencyDollar, MapPin, Timer } from "@phosphor-icons/react"
 import { useContext } from "react"

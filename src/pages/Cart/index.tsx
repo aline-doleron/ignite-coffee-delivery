@@ -32,11 +32,11 @@ export function Cart() {
     const deliveryTaxLocalized = deliveryTax.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 });
     const totalWithDeliveryTaxLocalized = (totalAmount + deliveryTax).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 });
 
-    function incrementCoffeeQuantity(type: string, quantity?: number) {
+    function incrementCoffeeQuantity(type: string) {
         addItemToCart(type, "increment");
     }
 
-    function decrementCoffeeQuantity(type: string, quantity?: number) {
+    function decrementCoffeeQuantity(type: string) {
         addItemToCart(type, "decrement");
     }
 
@@ -115,12 +115,12 @@ export function Cart() {
                                         <Quantity>
                                             <button disabled={cartItem.quantity === 0}><Minus size={14} onClick={(e) => {
                                                 e.preventDefault();
-                                                decrementCoffeeQuantity(cartItem.type, cartItem.quantity)
+                                                decrementCoffeeQuantity(cartItem.type)
                                             }} /></button>
                                             <input type="number" onChange={() => { }} value={cartItem.quantity} />
                                             <button ><Plus size={14} onClick={(e) => {
                                                 e.preventDefault();
-                                                incrementCoffeeQuantity(cartItem.type, cartItem.quantity)
+                                                incrementCoffeeQuantity(cartItem.type)
                                             }} /></button>
                                         </Quantity>
 

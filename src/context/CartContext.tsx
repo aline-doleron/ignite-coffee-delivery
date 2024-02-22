@@ -63,7 +63,6 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     }
 
     function updatePaymentMethod(newPaymentMethod: string) {
-        let payMethod;
         switch (newPaymentMethod) {
             case 'creditCard':
                 setPaymentMethod(

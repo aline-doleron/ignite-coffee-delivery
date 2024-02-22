@@ -1,7 +1,7 @@
 import { CoffeeCard, CartButton, CoffeeCardContainer, CoffeeOptionsContainer, CoffeeType, CoffeeValue, CoffeeDescription, Currency, CardText, Tags, Price, Quantity } from "./styles";
 
 import { Minus, Plus, ShoppingCartSimple } from "@phosphor-icons/react";
-import { useContext, useRef } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../../../context/CartContext";
 
 export function CoffeeOptions() {
