@@ -13,12 +13,12 @@ export function Header() {
         <HeaderContainer>
             <nav>
                 <NavLink to="/" title="Home">
-                    <img src={"/assets/logo-coffee-delivery.svg"} alt="" />
+                    <img src={"/ignite-coffee-delivery/assets/logo-coffee-delivery.svg"} alt="" />
                 </NavLink>
 
                 <ActionButtons>
                     <NavLink to="/" title="Locale">
-                        <Locale><MapPin size={22} weight="fill" />Porto Alegre, RS</Locale>
+                        <Locale><MapPin size={22} weight="fill" />Recife, PE</Locale>
                     </NavLink>
                     <NavLink to="/cart" title="Cart">
                         <Cart><ShoppingCart size={22} weight="fill" />

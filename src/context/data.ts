@@ -31,7 +31,7 @@ export interface Coffee {
 export const CoffeeTypes: Coffee[] = [
     {
         id: 1,
-        img: `/assets/${IMAGES.expresso}`,
+        img: `/ignite-coffee-delivery/assets/${IMAGES.expresso}`,
         tags: ['Tradicional'],
         type: 'Expresso Tradicional',
         description: 'O tradicional café feito com água quente e grãos moídos',
@@ -40,7 +40,7 @@ export const CoffeeTypes: Coffee[] = [
     },
     {
         id: 2,
-        img: `/assets/${IMAGES.americano}`,
+        img: `/ignite-coffee-delivery/assets/${IMAGES.americano}`,
         tags: ['Tradicional'],
         type: 'Expresso Americano',
         description: 'Expresso diluído, menos intenso que o tradicional',
@@ -49,7 +49,7 @@ export const CoffeeTypes: Coffee[] = [
     },
     {
         id: 3,
-        img: `/assets/${IMAGES['expresso-cremoso']}`,
+        img: `/ignite-coffee-delivery/assets/${IMAGES['expresso-cremoso']}`,
         tags: ['Tradicional'],
         type: 'Expresso Cremoso',
         description: 'Café expresso tradicional com espuma cremosa',
@@ -58,7 +58,7 @@ export const CoffeeTypes: Coffee[] = [
     },
     {
         id: 4,
-        img: `/assets/${IMAGES['cafe-gelado']}`,
+        img: `/ignite-coffee-delivery/assets/${IMAGES['cafe-gelado']}`,
         tags: ['Tradicional', 'Gelado'],
         type: 'Expresso Gelado',
         description: 'Bebida preparada com café expresso e cubos de gelo',
@@ -67,7 +67,7 @@ export const CoffeeTypes: Coffee[] = [
     },
     {
         id: 5,
-        img: `/assets/${IMAGES['cafe-com-leite']}`,
+        img: `/ignite-coffee-delivery/assets/${IMAGES['cafe-com-leite']}`,
         tags: ['Tradicional', 'com leite'],
         type: 'Café com Leite',
         description: 'Meio a meio de expresso tradicional com leite vaporizado',
@@ -76,7 +76,7 @@ export const CoffeeTypes: Coffee[] = [
     },
     {
         id: 6,
-        img: `/assets/${IMAGES.latte}`,
+        img: `/ignite-coffee-delivery/assets/${IMAGES.latte}`,
         tags: ['Tradicional', 'com leite'],
         type: 'Latte',
         description: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
@@ -85,7 +85,7 @@ export const CoffeeTypes: Coffee[] = [
     },
     {
         id: 7,
-        img: `/assets/${IMAGES.capuccino}`,
+        img: `/ignite-coffee-delivery/assets/${IMAGES.capuccino}`,
         tags: ['Tradicional', 'com leite'],
         type: 'Capuccino',
         description: 'Bebida com canela feita de doses iguais de café, leite e espuma',
@@ -94,7 +94,7 @@ export const CoffeeTypes: Coffee[] = [
     },
     {
         id: 8,
-        img: `/assets/${IMAGES.macchiato}`,
+        img: `/ignite-coffee-delivery/assets/${IMAGES.macchiato}`,
         tags: ['Tradicional', 'com leite'],
         type: 'Macchiato',
         description: 'Café expresso misturado com um pouco de leite quente e espuma',
@@ -103,7 +103,7 @@ export const CoffeeTypes: Coffee[] = [
     },
     {
         id: 9,
-        img: `/assets/${IMAGES.mochaccino}`,
+        img: `/ignite-coffee-delivery/assets/${IMAGES.mochaccino}`,
         tags: ['Tradicional', 'com leite'],
         type: 'Mocaccino',
         description: 'Café expresso com calda de chocolate, pouco leite e espuma',
@@ -112,7 +112,7 @@ export const CoffeeTypes: Coffee[] = [
     },
     {
         id: 10,
-        img: `/assets/${IMAGES['chocolate-quente']}`,
+        img: `/ignite-coffee-delivery/assets/${IMAGES['chocolate-quente']}`,
         tags: ['Tradicional', 'com leite'],
         type: 'Chocolate Quente',
         description: 'Bebida feita com chocolate dissolvido no leite quente e café',
@@ -121,7 +121,7 @@ export const CoffeeTypes: Coffee[] = [
     },
     {
         id: 11,
-        img: `/assets/${IMAGES.cubano}`,
+        img: `/ignite-coffee-delivery/assets/${IMAGES.cubano}`,
         tags: ['Tradicional', 'alcoólico', 'gelado'],
         type: 'Cubano',
         description: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
@@ -130,7 +130,7 @@ export const CoffeeTypes: Coffee[] = [
     },
     {
         id: 12,
-        img: `/assets/${IMAGES.havaiano}`,
+        img: `/ignite-coffee-delivery/assets/${IMAGES.havaiano}`,
         tags: ['especial'],
         type: 'Havaiano',
         description: 'Bebida adocicada preparada com café e leite de coco',
@@ -139,7 +139,7 @@ export const CoffeeTypes: Coffee[] = [
     },
     {
         id: 13,
-        img: `/assets/${IMAGES.arabe}`,
+        img: `/ignite-coffee-delivery/assets/${IMAGES.arabe}`,
         tags: ['especial'],
         type: 'Árabe',
         description: 'Bebida preparada com grãos de café árabe e especiarias',
@@ -148,7 +148,7 @@ export const CoffeeTypes: Coffee[] = [
     },
     {
         id: 14,
-        img: `/assets/${IMAGES.irlandes}`,
+        img: `/ignite-coffee-delivery/assets/${IMAGES.irlandes}`,
         tags: ['especial', 'alcoólico'],
         type: 'Irlandês',
         description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',

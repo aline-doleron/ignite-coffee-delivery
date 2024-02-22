@@ -35,7 +35,7 @@ export function Confirmation() {
                         </div>
                     </PaymentMethodResume>
                 </ConfirmationResume>
-                <img src={`/assets/Illustration.svg`}></img>
+                <img src={`/ignite-coffee-delivery/assets/Illustration.svg`}></img>
             </ConfirmationMessages>
         </ConfirmationContainer >
     )

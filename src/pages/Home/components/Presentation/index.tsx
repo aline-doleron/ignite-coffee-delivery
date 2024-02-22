@@ -33,7 +33,7 @@ export function Presentation() {
                 </Benefits>
             </PresentationText>
 
-            <img src={`/assets/coffee-delivery.svg`} alt="Cup of coffee" />
+            <img src={`/ignite-coffee-delivery/assets/coffee-delivery.svg`} alt="Cup of coffee" />
 
 
         </PresentationContainer>
