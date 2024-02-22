@@ -266,6 +266,7 @@ export const Quantity = styled.div`
     background-color: ${(props) => props.theme['base-button']};
     margin-right: 0.5rem;
     border-radius: 6px;
+    align-items: center;
 
     button:first-child {
         padding: .5rem .25rem .5rem 0.5625rem;

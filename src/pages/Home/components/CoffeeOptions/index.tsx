@@ -41,7 +41,7 @@ export function CoffeeOptions() {
                                     <CoffeeDescription>{coffee.description}</CoffeeDescription>
 
                                     <CoffeeValue>
-                                        <Currency>R$</Currency><Price>{coffee.price}</Price>
+                                        <Currency>R$</Currency><Price>{coffee.price.toLocaleString('pt-BR', { currency: 'BRL', minimumFractionDigits: 2 })}</Price>
                                         <Quantity>
                                             <button disabled={coffee.quantity === 0}><Minus size={14} onClick={(e) => {
                                                 e.preventDefault();

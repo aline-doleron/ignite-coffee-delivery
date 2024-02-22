@@ -1,6 +1,10 @@
 
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Minus, Money, Plus, Trash } from "@phosphor-icons/react";
-import { Address, CartContainer, FormGroup, Input10, Input100, Input40, Input50, Input60, BaseContainer, Payment, PaymentMethods, Coffees, Coffee, Quantity, RemoveButton, CoffeeResume, Actions, CoffeePrice, Resume, Total, Checkout, TotalItems, DeliveryTax, Label, Label60, Div60 } from "./styles";
+import {
+    Address, CartContainer, FormGroup, Input10, Input100, Input40, Input50,
+    BaseContainer, Payment, PaymentMethods, Coffees, Coffee, Quantity, RemoveButton, CoffeeResume,
+    Actions, CoffeePrice, Resume, Total, Checkout, TotalItems, DeliveryTax, Div60
+} from "./styles";
 import { ChangeEvent, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";
@@ -28,11 +32,11 @@ export function Cart() {
     const deliveryTaxLocalized = deliveryTax.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 });
     const totalWithDeliveryTaxLocalized = (totalAmount + deliveryTax).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 });
 
-    function incrementCoffeeQuantity(type: string) {
+    function incrementCoffeeQuantity(type: string, quantity?: number) {
         addItemToCart(type, "increment");
     }
 
-    function decrementCoffeeQuantity(type: string) {
+    function decrementCoffeeQuantity(type: string, quantity?: number) {
         addItemToCart(type, "decrement");
     }
 
