@@ -8,10 +8,10 @@ import { Confirmation } from "./pages/Confirmation";
 export function Router() {
     return (
         <Routes>
-            <Route path="/" element={<DefaultLayout />} >
-                <Route path="/" element={<Home />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/confirmation" element={<Confirmation />} />
+            <Route path="/ignite-coffee-delivery" element={<DefaultLayout />} >
+                <Route path="/ignite-coffee-delivery" element={<Home />} />
+                <Route path="/ignite-coffee-delivery/cart" element={<Cart />} />
+                <Route path="/ignite-coffee-delivery/confirmation" element={<Confirmation />} />
             </Route>
         </Routes>
     )
