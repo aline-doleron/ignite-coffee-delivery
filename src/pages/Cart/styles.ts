@@ -82,10 +82,42 @@ export const Input = styled.input`
     margin-bottom: 1rem;
     padding: .75rem;
     
-    &:last-child {
-        margin-bottom: 0;
+    &:active, &:focus-visible {
+        outline: 1px solid ${(props) => props.theme['yellow-dark']};
     }
+
 `
+
+export const Div60 = styled.div`
+    position: relative;
+    width: 60%;
+    
+    input {
+        background: ${(props) => props.theme['base-input']};
+        border: 1px solid ${(props) => props.theme['base-button']};
+        border-radius: 4px;
+        color: ${(props) => props.theme['base-label']};
+        height: 2.625rem;
+        margin-bottom: 1rem;
+        padding: .75rem;
+        width: 100%;
+    }
+
+    span {
+        position: absolute;
+        top: 40%;
+        right: .75rem;
+        transform: translateY(-50%);
+        color: #888;
+        font-size: .75rem;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        line-height: 130%;
+        font-style: italic;
+    }
+    
+`
+
 export const Input10 = styled(Input)`
     width: 10%;
 `

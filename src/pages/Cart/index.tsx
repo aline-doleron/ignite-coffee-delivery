@@ -1,11 +1,9 @@
 
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Minus, Money, Plus, Trash } from "@phosphor-icons/react";
-import { Address, CartContainer, FormGroup, Input10, Input100, Input40, Input50, Input60, BaseContainer, Payment, PaymentMethods, Coffees, Coffee, Quantity, RemoveButton, CoffeeResume, Actions, CoffeePrice, Resume, Total, Checkout, TotalItems, DeliveryTax } from "./styles";
-import { ChangeEvent, useContext, useState } from "react";
+import { Address, CartContainer, FormGroup, Input10, Input100, Input40, Input50, Input60, BaseContainer, Payment, PaymentMethods, Coffees, Coffee, Quantity, RemoveButton, CoffeeResume, Actions, CoffeePrice, Resume, Total, Checkout, TotalItems, DeliveryTax, Label, Label60, Div60 } from "./styles";
+import { ChangeEvent, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";
-
-
 
 export function Cart() {
     const { address,
@@ -15,7 +13,6 @@ export function Cart() {
         addItemToCart,
         removeCoffee,
         paymentMethod,
-        updateCoffeeQuantity,
         updateAddress,
         updatePaymentMethod,
         clearCart } = useContext(CartContext);
@@ -31,11 +28,11 @@ export function Cart() {
     const deliveryTaxLocalized = deliveryTax.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 });
     const totalWithDeliveryTaxLocalized = (totalAmount + deliveryTax).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 });
 
-    function incrementCoffeeQuantity(type: string, quantity: number) {
+    function incrementCoffeeQuantity(type: string) {
         addItemToCart(type, "increment");
     }
 
-    function decrementCoffeeQuantity(type: string, quantity: number) {
+    function decrementCoffeeQuantity(type: string) {
         addItemToCart(type, "decrement");
     }
 
@@ -68,11 +65,13 @@ export function Cart() {
                         <Input40 required type="text" name="cep" placeholder="CEP" value={address.cep} onChange={handleAddressChange} />
 
                         <Input100 required type="text" name="rua" placeholder="Rua" value={address.rua} onChange={handleAddressChange} />
-
                         <FormGroup>
                             <Input40 required type="text" name="numero" placeholder="Número" value={address.numero} onChange={handleAddressChange} />
 
-                            <Input60 type="text" name="complemento" placeholder="Complemento" value={address.complemento} onChange={handleAddressChange} />
+                            <Div60>
+                                <input type="text" name="complemento" placeholder="Complemento" value={address.complemento} onChange={handleAddressChange} />
+                                <span>Optional</span>
+                            </Div60>
                         </FormGroup>
                         <FormGroup>
                             <Input40 required type="text" name="bairro" placeholder="Bairro" value={address.bairro} onChange={handleAddressChange} />
